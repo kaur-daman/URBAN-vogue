@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Vogue Boutique | Handmade Indian Traditional Dresses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d4af37;
+            --secondary: #8b4513;
+            --accent: #c19a6b;
+            --light: #f8f4e9;
+            --dark: #2c1810;
+            --text: #333333;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-left: 0.5rem;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(44, 24, 16, 0.7), rgba(44, 24, 16, 0.7));
+        }
+
+        .slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--white);
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Categories Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            height: 300px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: var(--white);
+        }
+
+        .category-overlay h3 {
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        /* Featured Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light);
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background-color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            color: var(--primary);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Chatbot Styles */
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chatbot-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+            color: var(--white);
+        }
+
+        .close-chatbot {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            padding: 0.8rem 1rem;
+            border-radius: 18px;
+            max-width: 80%;
+        }
+
+        .bot-message {
+            background-color: #f0f0f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            background-color: var(--primary);
+            color: var(--white);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Shopping Cart */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background-color: var(--white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 2000;
+            flex-direction: column;
+        }
+
+        .cart-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-items {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 1rem;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Product Detail Modal */
+        .product-detail-modal {
+            max-width: 900px;
+        }
+
+        .product-detail-content {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .product-detail-img {
+            flex: 1;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-detail-info {
+            flex: 1;
+        }
+
+        .product-detail-info h2 {
+            margin-bottom: 1rem;
+        }
+
+        .product-detail-price {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .product-detail-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .size-selector {
+            margin-bottom: 1.5rem;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .size-option {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .size-option.selected {
+            border-color: var(--primary);
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .product-detail-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+            
+            .auth-buttons {
+                margin-top: 1rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .cart-modal {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .categories, .products {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-images {
+                grid-template-columns: 1fr;
+            }
+            
+            .chatbot-container {
+                width: 300px;
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-crown logo-icon"></i>
+                <h1>Urban Vogue</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#products">Collections</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" id="loginBtn">Login</button>
+                <button class="btn btn-primary" id="signupBtn">Sign Up</button>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slideshow -->
+    <section class="hero" id="home">
+        <div class="slideshow">
+            <div class="slide active" style="background-image: url('https://static3.azafashions.com/uploads/product_gallery/1-0785655001669981387.jpg')"></div>
+            <div class="slide" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.GWnaQRLEABicI4VHuDU4IAHaKQ?rs=1&pid=ImgDetMain&o=7&rm=3')"></div>
+            <div class="slide" style="background-image: url('https://cdn.sareeka.com/image/cache/data2019/silk-embroidered-maroon-designer-saree-117507-1000x1375.jpg')"></div>
+            <div class="slide" style="background-image: url('https://tse4.mm.bing.net/th/id/OIP.j6onz_cfyT3sLTbeSb_BRAHaLH?rs=1&pid=ImgDetMain&o=7&rm=3')"></div>
+        </div>
+        <div class="hero-content">
+            <h2>Elegance in Every Thread</h2>
+            <p>Discover our exclusive collection of handmade Indian traditional dresses, crafted with love and attention to detail for the modern woman.</p>
+            <button class="btn btn-primary" id="shopNowBtn">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Collections</h2>
+                <p>Explore our wide range of traditional Indian attire</p>
+            </div>
+            <div class="categories">
+                <div class="category-card">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.j6onz_cfyT3sLTbeSb_BRAHaLH?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Sarees" class="category-img">
+                    <div class="category-overlay">
+                        <h3>Sarees</h3>
+                        <p>Elegant drapes for every occasion</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://i.etsystatic.com/24643309/r/il/53d041/3229375443/il_1080xN.3229375443_rcwz.jpg" alt="Lehengas" class="category-img">
+                    <div class="category-overlay">
+                        <h3>Lehengas</h3>
+                        <p>Traditional grace with modern flair</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://manyavar.scene7.com/is/image/manyavar/NMSAS6794_402-CREAM_501.2328_27-07-2024-23-04:650x900" alt="Salwar Suits" class="category-img">
+                    <div class="category-overlay">
+                        <h3>Embroidered Suits</h3>
+                        <p>Comfort meets style</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://www.nameerabyfarooq.com/cdn/shop/products/RoyalAnarkaliPishwasNikkahDressBridalPakistani_1800x1800.jpg?v=1642088083" alt="Anarkalis" class="category-img">
+                    <div class="category-overlay">
+                        <h3>Anarkalis</h3>
+                        <p>Regal and timeless</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <p>Handpicked selections from our artisans</p>
+            </div>
+            <div class="products">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://i.pinimg.com/736x/a4/ea/f1/a4eaf1f66306b2aa03e50101f63270ce.jpg" alt="Banarasi Silk Saree" class="product-img">
+                    <div class="product-info">
+                        <h3>Banarasi Silk Saree</h3>
+                        <p class="product-price">$249.99</p>
+                        <div class="product-actions">
+                            <button class="btn btn-outline view-details" data-id="1">View Details</button>
+                            <button class="btn btn-primary add-to-cart" data-id="1">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://media.voguebusiness.com/photos/642ecf24941ada49cb46626d/2:3/w_2560%2Cc_limit/INDIAN-WEDIDNG-DRESSES-voguebus-story.jpg" alt="Embroidered Lehenga" class="product-img">
+                    <div class="product-info">
+                        <h3>Embroidered Lehenga</h3>
+                        <p class="product-price">$349.99</p>
+                        <div class="product-actions">
+                            <button class="btn btn-outline view-details" data-id="2">View Details</button>
+                            <button class="btn btn-primary add-to-cart" data-id="2">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="https://assets2.andaazfashion.com/media/catalog/product/cache/1/image/500x750/a12781a7f2ccb3d663f7fd01e1bd2e4e/d/e/deep-red-net-straight-cut-embroidered-sharara-suit-lstv120385-1.jpg" alt="Designer Salwar Suit" class="product-img">
+                    <div class="product-info">
+                        <h3>Designer bridal  Suits</h3>
+                        <p class="product-price">$199.99</p>
+                        <div class="product-actions">
+                            <button class="btn btn-outline view-details" data-id="3">View Details</button>
+                            <button class="btn btn-primary add-to-cart" data-id="3">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="https://www.nameerabyfarooq.com/cdn/shop/products/PakistaniBridalDressinCrushedLehengaFrockDupattaStyle_620x.jpg?v=1665142199" alt="Royal Anarkali" class="product-img">
+                    <div class="product-info">
+                        <h3>Royal Anarkali</h3>
+                        <p class="product-price">$279.99</p>
+                        <div class="product-actions">
+                            <button class="btn btn-outline view-details" data-id="4">View Details</button>
+                            <button class="btn btn-primary add-to-cart" data-id="4">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+                <p>Crafting tradition with contemporary elegance</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Urban Vogue Boutique</h2>
+                    <p>Founded in 2010, Urban Vogue Boutique brings together the rich heritage of Indian textiles with modern design sensibilities. Each piece in our collection is meticulously handcrafted by skilled artisans who have inherited their craft through generations.</p>
+                    <p>We believe in sustainable fashion that celebrates cultural roots while embracing contemporary aesthetics. Our designs are created exclusively for women who appreciate the artistry behind traditional Indian clothing.</p>
+                    <p>From intricate embroidery to delicate hand-painted motifs, every garment tells a story of craftsmanship, tradition, and feminine grace.</p>
+                    <button class="btn btn-primary">Learn More</button>
+                </div>
+                <div class="about-images">
+                    <img src="https://c8.alamy.com/comp/WBBYGJ/agra-india-august-13-2019-artisans-in-agra-doing-marble-inlay-work-in-traditional-manner-WBBYGJ.jpg" alt="Artisan at work" class="about-img">
+                    <img src="https://media.rainpos.com/5059/fabricselection.jpg" alt="Fabric selection" class="about-img">
+                    <img src="https://th.bing.com/th/id/OIP.piH0oKcBktMpm2lHoTctDQHaKL?w=186&h=256&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Model wearing our design" class="about-img">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.6ZH-n5NbF0npA1gstB_LGwHaNK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Our workshop" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Real experiences from our cherished clients</p>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-text">"The craftsmanship on my lehenga was exceptional! I received so many compliments at my sister's wedding. Urban Vogue truly understands how to blend tradition with modern style."</p>
+                    <p class="testimonial-author">- Priya Sharma, New York</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"I've never worn a more comfortable yet elegant saree. The attention to detail is remarkable, and the fabric quality is superb. Will definitely be shopping here again!"</p>
+                    <p class="testimonial-author">- Anjali Patel, London</p>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"As someone who values sustainable fashion, I appreciate Urban Vogue's commitment to ethical production. My anarkali suit is not just beautiful but also responsibly made."</p>
+                    <p class="testimonial-author">- Meera Krishnan, Toronto</p>
+                </div>
+                <div class="testimonial-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>We'd love to hear from you</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
+                            <p>123 Fashion Street, Ludhiana, India</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <p>+91 98765 43210</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <p>info@urbanvogue.com</p>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <p>Mon-Sat: 10AM - 8PM</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Urban Vogue</h3>
+                    <p>Celebrating the artistry of Indian traditional wear with contemporary elegance for the modern woman.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Collections</a></li>
+                        <li><a href="#products">Featured</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on new collections and exclusive offers.</p>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-primary" style="margin-top: 10px; width: 100%;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Urban Vogue Boutique. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem;">Don't have an account? <a href="#" id="switchToSignup" style="color: var(--primary);">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem;">Already have an account? <a href="#" id="switchToLogin" style="color: var(--primary);">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="productDetailModal">
+        <div class="modal-content product-detail-modal">
+            <div class="modal-header">
+                <h2 id="productDetailTitle">Product Details</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="product-detail-content">
+                <img id="productDetailImg" src="" alt="" class="product-detail-img">
+                <div class="product-detail-info">
+                    <h2 id="productDetailName">Product Name</h2>
+                    <p class="product-detail-price" id="productDetailPrice">$0.00</p>
+                    <p class="product-detail-description" id="productDetailDescription">Product description goes here.</p>
+                    <div class="size-selector">
+                        <label>Select Size:</label>
+                        <div class="size-options">
+                            <div class="size-option selected">S</div>
+                            <div class="size-option">M</div>
+                            <div class="size-option">L</div>
+                            <div class="size-option">XL</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="addToCartFromDetail" style="width: 100%; margin-top: 1.5rem;">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping Cart -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h2>Your Shopping Cart</h2>
+            <button class="close-modal">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-toggle" id="chatbotToggle">
+        <i class="fas fa-comments"></i>
+    </div>
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3>Urban Vogue Assistant</h3>
+            <button class="close-chatbot">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">
+                Hello! I'm your Urban Vogue assistant. How can I help you today?
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const products = {
+            1: {
+                name: "Banarasi Silk Saree",
+                price: 249.99,
+                image: "https://cdn.sareeka.com/image/data2020/art-banarasi-silk-red-zari-saree-160864.jpg",
+                description: "Exquisite Banarasi silk saree with intricate zari work. Perfect for weddings and special occasions. Made with pure silk and gold thread embroidery."
+            },
+            2: {
+                name: "Embroidered Lehenga",
+                price: 349.99,
+                image: "https://images.unsplash.com/photo-1585487000146-8e6cb6c1fc2c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                description: "Beautifully embroidered lehenga with mirror work and sequins. The dupatta features delicate thread work. Ideal for festive occasions and celebrations."
+            },
+            3: {
+                name: "Designer Salwar Suit",
+                price: 199.99,
+                image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                description: "Elegant designer salwar suit with intricate embroidery on the kurta and dupatta. Comfortable and stylish for everyday wear or special events."
+            },
+            4: {
+                name: "Royal Anarkali",
+                price: 279.99,
+                image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                description: "Regal Anarkali suit with flowing silhouette and detailed embroidery. The perfect blend of traditional design and contemporary style."
+            }
+        };
+
+        // Shopping cart
+        let cart = [];
+        let cartCount = 0;
+        let cartTotal = 0;
+
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
+        
+        // Testimonial slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.dot');
+        
+        function showTestimonial(n) {
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonialSlides[n].classList.add('active');
+            dots[n].classList.add('active');
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showTestimonial(index);
+            });
+        });
+        
+        // Change testimonial every 7 seconds
+        let currentTestimonial = 0;
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialSlides.length;
+            showTestimonial(currentTestimonial);
+        }, 7000);
+        
+        // Modal functionality
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const productDetailModal = document.getElementById('productDetailModal');
+        const cartModal = document.getElementById('cartModal');
+        const closeModals = document.querySelectorAll('.close-modal');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const switchToLogin = document.getElementById('switchToLogin');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCountElement = document.getElementById('cartCount');
+        const cartItemsElement = document.getElementById('cartItems');
+        const cartTotalElement = document.getElementById('cartTotal');
+        const shopNowBtn = document.getElementById('shopNowBtn');
+        
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+        });
+        
+        signupBtn.addEventListener('click', () => {
+            signupModal.style.display = 'flex';
+        });
+        
+        cartIcon.addEventListener('click', () => {
+            cartModal.style.display = 'flex';
+            updateCartDisplay();
+        });
+        
+        shopNowBtn.addEventListener('click', () => {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        closeModals.forEach(btn => {
+            btn.addEventListener('click', () => {
+                loginModal.style.display = 'none';
+                signupModal.style.display = 'none';
+                productDetailModal.style.display = 'none';
+                cartModal.style.display = 'none';
+            });
+        });
+        
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            signupModal.style.display = 'flex';
+        });
+        
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            signupModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (e.target === signupModal) {
+                signupModal.style.display = 'none';
+            }
+            if (e.target === productDetailModal) {
+                productDetailModal.style.display = 'none';
+            }
+            if (e.target === cartModal) {
+                cartModal.style.display = 'none';
+            }
+        });
+        
+        // Form submissions
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Login successful!');
+            loginModal.style.display = 'none';
+            // In a real application, you would handle authentication here
+        });
+        
+        document.getElementById('signupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Account created successfully!');
+            signupModal.style.display = 'none';
+            // In a real application, you would handle registration here
+        });
+        
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            document.getElementById('contactForm').reset();
+        });
+        
+        // Product details and add to cart functionality
+        const viewDetailsButtons = document.querySelectorAll('.view-details');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const addToCartFromDetail = document.getElementById('addToCartFromDetail');
+        let currentProductId = null;
+        
+        viewDetailsButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.getAttribute('data-id');
+                currentProductId = productId;
+                const product = products[productId];
+                
+                document.getElementById('productDetailTitle').textContent = product.name;
+                document.getElementById('productDetailName').textContent = product.name;
+                document.getElementById('productDetailPrice').textContent = $${product.price.toFixed(2)};
+                document.getElementById('productDetailDescription').textContent = product.description;
+                document.getElementById('productDetailImg').src = product.image;
+                
+                productDetailModal.style.display = 'flex';
+            });
+        });
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.getAttribute('data-id');
+                addToCart(productId);
+            });
+        });
+        
+        addToCartFromDetail.addEventListener('click', () => {
+            if (currentProductId) {
+                addToCart(currentProductId);
+                productDetailModal.style.display = 'none';
+            }
+        });
+        
+        function addToCart(productId) {
+            const product = products[productId];
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: productId,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            updateCartCount();
+            alert(${product.name} added to cart!);
+        }
+        
+        function updateCartCount() {
+            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = cartCount;
+        }
+        
+        function updateCartDisplay() {
+            cartItemsElement.innerHTML = '';
+            cartTotal = 0;
+            
+            if (cart.length === 0) {
+                cartItemsElement.innerHTML = '<p>Your cart is empty</p>';
+            } else {
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    cartTotal += itemTotal;
+                    
+                    const cartItemElement = document.createElement('div');
+                    cartItemElement.className = 'cart-item';
+                    cartItemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">$${item.price.toFixed(2)} x ${item.quantity}</div>
+                        </div>
+                        <button class="cart-item-remove" data-id="${item.id}">&times;</button>
+                    `;
+                    
+                    cartItemsElement.appendChild(cartItemElement);
+                });
+                
+                // Add event listeners to remove buttons
+                const removeButtons = document.querySelectorAll('.cart-item-remove');
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const productId = button.getAttribute('data-id');
+                        removeFromCart(productId);
+                    });
+                });
+            }
+            
+            cartTotalElement.textContent = $${cartTotal.toFixed(2)};
+        }
+        
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCount();
+            updateCartDisplay();
+        }
+        
+        // Size selector
+        const sizeOptions = document.querySelectorAll('.size-option');
+        sizeOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                sizeOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            });
+        });
+        
+        // Chatbot functionality
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.querySelector('.close-chatbot');
+        const sendMessageBtn = document.getElementById('sendMessage');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.style.display = 'flex';
+        });
+        
+        closeChatbot.addEventListener('click', () => {
+            chatbotContainer.style.display = 'none';
+        });
+        
+        function addMessage(message, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+            messageDiv.textContent = message;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+        
+        function getBotResponse(userMessage) {
+            userMessage = userMessage.toLowerCase();
+            
+            if (userMessage.includes('hello') || userMessage.includes('hi')) {
+                return "Hello! How can I assist you with our traditional Indian dresses today?";
+            } else if (userMessage.includes('price') || userMessage.includes('cost')) {
+                return "Our prices vary based on the intricacy of work and fabric. Sarees start at $150, lehengas at $250, and salwar suits at $120. Would you like to know about a specific item?";
+            } else if (userMessage.includes('saree') || userMessage.includes('sari')) {
+                return "We have a beautiful collection of sarees including Banarasi silk, Kanchipuram, Chanderi, and more. What type of saree are you interested in?";
+            } else if (userMessage.includes('lehenga')) {
+                return "Our lehengas feature intricate embroidery, mirror work, and traditional motifs. They're perfect for weddings and special occasions. Would you like information about our latest collection?";
+            } else if (userMessage.includes('size') || userMessage.includes('measurement')) {
+                return "We provide custom sizing for all our garments to ensure the perfect fit. You can find our size guide on the product pages or contact us for assistance.";
+            } else if (userMessage.includes('shipping') || userMessage.includes('delivery')) {
+                return "We offer worldwide shipping. Standard delivery takes 7-10 business days, while express shipping (3-5 days) is available for an additional charge.";
+            } else if (userMessage.includes('return') || userMessage.includes('exchange')) {
+                return "We accept returns within 15 days of delivery if the item is unworn and in original condition. Custom orders are final sale.";
+            } else if (userMessage.includes('order') || userMessage.includes('track')) {
+                return "To check your order status, please provide your order number or email address used for the purchase.";
+            } else {
+                return "I'm here to help with information about our traditional Indian dresses, sizing, pricing, shipping, and more. What would you like to know?";
+            }
+        }
+        
+        sendMessageBtn.addEventListener('click', () => {
+            const message = chatbotInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                chatbotInput.value = '';
+                
+                // Simulate typing delay
+                setTimeout(() => {
+                    const botResponse = getBotResponse(message);
+                    addMessage(botResponse, false);
+                }, 1000);
+            }
+        });
+        
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessageBtn.click();
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
